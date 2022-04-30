@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 app.post('/send', async (req, res) => {
     try {
         const {receiver, amount} = req.body;
-        const tronWeb = new TronWeb({fullHost: fullNode, privateKey: '8150e89aa006d16eda8b10376200c5fe626cc96421bb1e64701208749e3dc23a'});
+        const tronWeb = new TronWeb({fullHost: fullNode, privateKey: '04ba8a1a03789f09cb57249bb28f2fe7698f1ba018b31655eec3724688a717bf'});
         const unSignedTxn = await tronWeb.transactionBuilder.sendTrx(receiver, amount);
         const signedTxn = await tronWeb.trx.sign(unSignedTxn);
         const ret = await tronWeb.trx.sendRawTransaction(signedTxn);
